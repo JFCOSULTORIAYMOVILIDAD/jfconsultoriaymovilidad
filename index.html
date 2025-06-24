@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="FAVICON.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consultoria en Movilidad, Transito y Transporte</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
+    .nav-link { color: white !important; margin: 0 10px; }
+    .nav-link:hover { color: #ffc107 !important; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .timeline {
+      position: relative;
+      margin: 50px auto;
+      padding: 40px 0;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #d9534f;
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      width: 50%;
+      padding: 20px;
+      position: relative;
+    }
+    .timeline-item.left { left: 0; text-align: right; }
+    .timeline-item.right { left: 50%; text-align: left; }
+    .timeline-box {
+      background: white;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(48, 1, 131, 0.1);
+    }
+    .timeline-box::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+    .timeline-item.left .timeline-box::before {
+      right: -10px;
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent white;
+    }
+    .timeline-item.right .timeline-box::before {
+      left: -10px;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent white transparent transparent;
+    }
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 24px;
+      z-index: 1000;
+    }
+    .counter {
+      font-size: 2.5rem;
+      color: #d9534f;
+      font-weight: bold;
+    }
+  </style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="JF S.A.S (1).gif" alt="JF Consultoría Logo" width="200" class="me-2">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#Que ofrecemos">Que ofrecemos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Nuestros servicios">Nuestros servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Proyectos Destacados">Proyectos Destacados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contacto">Contacto</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section id="portada" class="bg-dark">
+  <div class="container-fluid p-0">
+    <img src="PORTADA JF WEB.gif" alt="Portada JF Consultoría" class="w-100" style="max-height: 500px; object-fit: cover;">
+  </div>
+</section>
+<section id="timeline" class="py-5 bg-light">
+  <div class="container text-center">
+    <div class="p-4 rounded text-white caja-interactiva mx-auto">
+      <h2 class="mb-0">Perfil Corporativo</h2>
+    </div>
+  </div>
+</section>
+
+<style>
+  .caja-interactiva {
+    background-color: #dc3545; /* Color rojizo (Bootstrap danger) */
+    max-width: 700px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .caja-interactiva:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02); /* Ligero agrandamiento al pasar el cursor */
+  }
+</style>
+  <style>
+  .perfil-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .perfil-tab {
+    background: white;
+    border: 2px solid #d9534f;
+    color: #d9534f;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .perfil-tab:hover, .perfil-tab.active {
+    background: #d9534f;
+    color: white;
+  }
+
+  .perfil-content {
+    display: none;
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  .perfil-content.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+</style>
+
+<section id="perfil" class="py-5 bg-light">
+  <div class="container text-center">
+
+    <div class="perfil-tabs">
+      <div class="perfil-tab active" onclick="showPerfilTab('Nosotros')">Nosotros</div>
+      <div class="perfil-tab" onclick="showPerfilTab('Misión')">Misión</div>
+      <div class="perfil-tab" onclick="showPerfilTab('Visión')">Visión</div>
+      <div class="perfil-tab" onclick="showPerfilTab('Historia')">Historia</div>
+    </div>
+
+    <div id="Nosotros" class="perfil-content active">
+      <p><strong>Nosotros:</strong> En JF Consultoría y Movilidad S.A.S trabajamos con un propósito claro: asesorar, diagnosticar, formular y ejecutar proyectos relacionados con la movilidad, el tránsito y el transporte, con un enfoque técnico, estratégico y adaptado a las realidades locales.
+        Nos mueve la seguridad vial y la convicción de que una movilidad eficiente y planificada es clave para el desarrollo sostenible de las ciudades y los territorios.
+        Actuamos bajo principios de responsabilidad, innovación y compromiso social, brindando soluciones prácticas y efectivas para entidades públicas y privadas.</p>
+    </div>
+
+    <div id="Misión" class="perfil-content">
+      <p><strong>Misión:</strong> Brindar asesoría técnica especializada en movilidad y transporte, diseñando e implementando estrategias sostenibles y seguras que fortalezcan la gestión pública y privada del tránsito, promoviendo un desarrollo territorial más ordenado, inclusivo y resiliente.</p>
+    </div>
+
+    <div id="Visión" class="perfil-content">
+      <p><strong>Visión:</strong> Ser en el año 2030 una empresa líder a nivel nacional en consultoría en movilidad y transporte, reconocida por su compromiso con la calidad, la innovación, el impacto social y la transformación de las dinámicas urbanas y rurales en Colombia.</p>
+    </div>
+
+    <div id="Historia" class="perfil-content">
+      <p><strong>Historia:</strong> JF Consultoría y Movilidad S.A.S nació en respuesta a la creciente necesidad de estructurar proyectos técnicos en movilidad que respondan a las realidades locales de municipios y regiones del país.
+        Fundada por un equipo de profesionales apasionados por el desarrollo territorial, la empresa inició su camino asesorando organismos de tránsito y participando en la formulación de planes estratégicos de movilidad.
+        A lo largo del tiempo, hemos consolidado alianzas con entidades públicas, expandiendo nuestros servicios a diferentes regiones del país y posicionándonos como un referente en la planificación y gestión de la movilidad con enfoque social, ambiental y técnico.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function showPerfilTab(tabId) {
+    // Mostrar contenido
+    document.querySelectorAll('.perfil-content').forEach(c => c.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+
+    // Cambiar estado visual del botón
+    document.querySelectorAll('.perfil-tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+</script>
+
+  </section>
+<section id="timeline" class="py-5 bg-light">
+  <div class="container text-center">
+    <div class="p-4 rounded text-white caja-interactiva mx-auto">
+      <h2 class="mb-0">JF – Consultoría en Movilidad, Tránsito y Transporte es:</h2>
+    </div>
+  </div>
+
+<style>
+  .caja-interactiva {
+    background-color: #dc3545; /* Color rojizo (Bootstrap danger) */
+    max-width: 700px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .caja-interactiva:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02); /* Ligero agrandamiento al pasar el cursor */
+  }
+</style>
+
+</style>
+  <section class="timeline container">
+    <div class="timeline-item left">
+      <div class="timeline-box" data-aos="fade-right">
+        <h5>🚦 Experta en normatividad</h5>
+        <p>Dominamos el marco legal vigente en tránsito, transporte y movilidad, garantizando asesoría técnica precisa.</p>
+      </div>
+    </div>
+    <div class="timeline-item right">
+      <div class="timeline-box" data-aos="fade-left">
+        <h5>🚗 Soluciones personalizadas</h5>
+        <p>Diseñamos estrategias adaptadas a las necesidades específicas de cada municipio o empresa.</p>
+      </div>
+    </div>
+    <div class="timeline-item left">
+      <div class="timeline-box" data-aos="fade-right">
+        <h5>📊 Análisis técnico y estratégico</h5>
+        <p>Evaluamos infraestructura, flujos de tránsito y demanda para tomar decisiones informadas.</p>
+      </div>
+    </div>
+    <div class="timeline-item right">
+      <div class="timeline-box" data-aos="fade-left">
+        <h5>👥 Compromiso con el desarrollo</h5>
+        <p>Impulsamos la movilidad sostenible, segura e incluyente en territorios urbanos y rurales.</p>
+      </div>
+
+  </section>
+<section id="timeline" class="py-5 bg-light">
+  <div class="container text-center">
+    <div class="p-4 rounded text-white caja-interactiva mx-auto">
+      <h2 class="mb-0">Que ofrecemos</h2>
+    </div>
+  </div>
+
+<style>
+  .caja-interactiva {
+    background-color: #dc3545; /* Color rojizo (Bootstrap danger) */
+    max-width: 700px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .caja-interactiva:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02); /* Ligero agrandamiento al pasar el cursor */
+  }
+</style>
+  <section id="Que ofrecemos" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5"></h2>
+      <div class="row">
+        <div class="col-md-3 text-center" data-aos="fade-up">
+          <i class="fas fa-search-location fa-2x text-danger mb-2"></i>
+          <p>Diagnóstico Técnico</p>
+        </div>
+        <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-drafting-compass fa-2x text-danger mb-2"></i>
+          <p>Planeación Estratégica</p>
+        </div>
+        <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-users-cog fa-2x text-danger mb-2"></i>
+          <p>Acompañamiento Técnico</p>
+        </div>
+        <div class="col-md-3 text-center" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-chart-line fa-2x text-danger mb-2"></i>
+          <p>Evaluación de Resultados</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+<section id="Nuestros servicios" class="py-5 bg-light">
+  <div class="container text-center">
+    <div class="p-4 rounded text-white caja-interactiva mx-auto">
+      <h2 class="mb-0">Nuestros Servicios</h2>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .caja-interactiva {
+    background-color: #dc3545; /* Color rojizo (Bootstrap danger) */
+    max-width: 700px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .caja-interactiva:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02); /* Ligero agrandamiento al pasar el cursor */
+  }
+</style>
+<style>
+  .flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 400px;
+    perspective: 1000px;
+    margin-bottom: 30px;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    padding: 20px;
+  }
+
+  .flip-card-front {
+    background: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flip-card-back {
+    background-color: #f8f9fa;
+    color: #000;
+    transform: rotateY(180deg);
+    overflow-y: auto;
+  }
+</style>
+
+<div class="row">
+  <div class="col-md-4" data-aos="zoom-in">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front text-center">
+          <i class="fas fa-bus-alt fa-2x text-danger mb-2"></i>
+          <h5>Asesoría en Tránsito</h5>
+        </div>
+        <div class="flip-card-back">
+          <h5>Asesoría en Tránsito</h5>
+          <p>En JF Consultoría y Movilidad S.A.S, ofrecemos asesoría especializada en tránsito enfocada en el fortalecimiento institucional y la mejora de la seguridad vial. Acompañamos a los municipios en la creación y estructuración de autoridades y organismos de tránsito, así como en la conformación y capacitación de cuerpos de agentes. Además, desarrollamos campañas pedagógicas orientadas a la cultura vial y brindamos formación técnica en normativas y procedimientos para la imposición de comparendos. Todo esto se apoya en estudios técnicos orientados al ordenamiento y control efectivo del tránsito, adaptados a las necesidades de cada territorio.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front text-center">
+          <i class="fas fa-shield-alt fa-2x text-danger mb-2"></i>
+          <h5>Asesoría en Movilidad</h5>
+        </div>
+        <div class="flip-card-back">
+          <h5>Asesoría en Movilidad</h5>
+          <p>Nuestros servicios en movilidad están orientados a diseñar estrategias técnicas que mejoren el flujo vehicular, la seguridad vial y el cumplimiento normativo en contextos urbanos y rurales. Desarrollamos y formulamos planes como el Plan Local de Seguridad Vial (PLSV), el Plan Estratégico de Seguridad Vial (PESV), el Plan Estratégico de Control contra la Ilegalidad del Transporte (PECCIT) y el Plan de Gestión de Velocidad (PGV). Además, realizamos estudios especializados en señalización vial, tránsito, semaforización, y diagnósticos técnicos que permiten estructurar soluciones efectivas, sostenibles y ajustadas al entorno.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front text-center">
+          <i class="fas fa-traffic-light fa-2x text-danger mb-2"></i>
+          <h5>Asesoría en Transporte</h5>
+        </div>
+        <div class="flip-card-back">
+          <h5>Asesoría en Transporte</h5>
+          <p>En el componente de transporte, brindamos asesoría integral para la planificación, legalización y fortalecimiento del sistema de transporte público, tanto individual como colectivo. Apoyamos la creación y estructuración de empresas de transporte, la determinación de rutas y capacidad transportadora, así como el diseño y formulación de terminales de transporte que respondan a las demandas reales del territorio. Nuestros estudios y diagnósticos permiten establecer sistemas eficientes y seguros, contribuyendo a la integración de la movilidad urbana y rural con un enfoque técnico y estratégico.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </section>
+<section id="Proyectos Destacados" class="py-5 bg-light">
+  <div class="container text-center">
+     <!-- Caja roja solo para el título -->
+    <div class="p-4 rounded text-white caja-interactiva mx-auto" style="background-color: #dc3545; max-width: 800px;">
+      <h2 class="mb-0">Proyectos Destacados:</h2>
+    </div>
+
+    <!-- Caja blanca separada con margen -->
+    <div class="p-5 bg-white rounded shadow mx-auto" style="max-width: 1100px; margin-top: 30px;">
+      <video class="img-fluid" controls autoplay muted loop>
+        <source src="PROYECTOS.mp4" type="video/mp4">
+      </video>
+    </div>
+
+  </div>
+  </section>
+
+<style>
+  #estadisticas {
+    background-image: url('FONDO ESTADISTICAS.jpeg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+    z-index: 1;
+  }
+
+  #estadisticas::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* oscurece para mejor lectura */
+    z-index: -1;
+  }
+
+  #estadisticas .counter {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffc107;
+  }
+
+  #estadisticas p {
+    font-size: 1.2rem;
+  }
+</style>
+
+<section id="estadisticas" class="py-5">
+  <div class="container text-center">
+    <h2 class="mb-5">Estadísticas</h2>
+    <div class="row">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="counter" data-count="35">0</div>
+        <p>Clientes Satisfechos</p>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="counter" data-count="60">0</div>
+        <p>Proyectos Ejecutados</p>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="counter" data-count="5">0</div>
+        <p>Años de Experiencia</p>
+      </div>
+    </div>
+  </div>
+
+
+  </section>
+<style>
+  .suscripcion-final {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    max-width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .suscripcion-texto {
+    flex: 1 1 450px;
+    text-align: center;
+  }
+
+  .suscripcion-texto h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+  }
+
+  .suscripcion-texto p {
+    color: #222;
+    margin-bottom: 20px;
+  }
+
+  .suscripcion-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .suscripcion-form input[type="text"],
+  .suscripcion-form input[type="email"],
+  .suscripcion-form select {
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #555;
+    border-radius: 10px;
+    background: #f9f9f9;
+    color: #000;
+    margin-bottom: 12px;
+    font-size: 1rem;
+  }
+
+  .suscripcion-form input::placeholder {
+    color: #666;
+  }
+
+  .suscripcion-form button {
+    background: #d50000;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+
+  .suscripcion-form button:hover {
+    background: #a80000;
+  }
+
+  .suscripcion-imagen {
+    flex: 1 1 450px;
+    text-align: center;
+  }
+
+  .suscripcion-imagen img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  @media (max-width: 768px) {
+    .suscripcion-final {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .suscripcion-form input,
+    .suscripcion-form select,
+    .suscripcion-form button {
+      width: 100%;
+    }
+  }
+</style>
+
+<section id="contacto" class="suscripcion-final">
+  <div class="suscripcion-texto">
+    <p style="color:red;"><strong>¿Tienes dudas o inquietudes?</strong></p>
+    <h3>Déjanos tu correo y recibe toda la información que necesitas</h3>
+      <!-- CORRECCIÓN: solo una etiqueta form -->
+    <form class="suscripcion-form" action="https://formspree.io/f/manjpalye" method="POST">
+      <input type="text" name="nombre" placeholder="Ingresa tu nombre" required>
+      <input type="email" name="correo" placeholder="Ingresa tu correo" required>
+      <select name="tema" required>
+        <option value="">Selecciona el tema de interés</option>
+        <option value="movilidad">Asesoría en Movilidad</option>
+        <option value="transito">Asesoría en Tránsito</option>
+        <option value="transporte">Asesoría en Transporte</option>
+      </select>
+      <button type="submit">ENVIAR</button>
+    </form>
+  </div>
+
+  <div class="suscripcion-imagen">
+    <img src="jf consultoria imagen.png" alt="JF Consultoría imagen">
+  </div>
+
+</section>
+<!-- WHATSAPP CHAT -->
+<div class="whatsapp-chat" id="whatsapp-chat">
+  <div class="whatsapp-header">
+    <span><i class="fab fa-whatsapp"></i> WhatsApp</span>
+    <button onclick="toggleWhatsApp()" class="whatsapp-close">&times;</button>
+  </div>
+  <div class="whatsapp-body">
+    <p><strong>Hola 👋</strong><br>¿En qué podemos ayudarte?</p>
+    <a href="https://wa.me/573124991972" target="_blank" class="whatsapp-open">
+      <i class="fab fa-whatsapp"></i> Abrir chat
+    </a>
+  </div>
+</div>
+
+<!-- BOTÓN FLOTANTE EN VERDE -->
+<a class="whatsapp-float" onclick="toggleWhatsApp()">
+  <i class="fab fa-whatsapp"></i>
+</a>
+<style>
+  .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366; /* Verde de WhatsApp */
+    color: white;
+    font-size: 24px;
+    padding: 14px 16px;
+    border-radius: 50%;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+
+  .whatsapp-chat {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 280px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+    z-index: 998;
+    display: none;
+    font-family: sans-serif;
+  }
+
+  .whatsapp-header {
+    background: #d50000; /* Rojo */
+    color: white;
+    padding: 12px 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .whatsapp-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .whatsapp-body {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .whatsapp-open {
+    background: #d50000; /* Rojo */
+    color: white;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .whatsapp-open i {
+    font-size: 18px;
+  }
+</style>
+
+<script>
+  function toggleWhatsApp() {
+    const chat = document.getElementById('whatsapp-chat');
+    chat.style.display = chat.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
+
+</section>
+  <footer class="bg-dark text-white text-center py-4">
+    <p>Síguenos en redes sociales</p>
+    <div class="mb-3">
+      <a href="#" class="text-white mx-2"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/jfconsultoraoficial?igsh=MWNzcTA5dWwwODgybA==" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>&copy; 2025 JF Consultoría y Movilidad S.A.S. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function showTab(id) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    const counters = document.querySelectorAll('.counter');
+    let started = false;
+    function animateCounters() {
+      counters.forEach(counter => {
+        const updateCount = () => {
+          const target = +counter.getAttribute('data-count');
+          const count = +counter.innerText;
+          const increment = target / 100;
+          if(count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 30);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+      });
+    }
+    window.addEventListener('scroll', () => {
+      const statsSection = document.getElementById('estadisticas');
+      const top = statsSection.getBoundingClientRect().top;
+      if(top < window.innerHeight && !started) {
+        started = true;
+        animateCounters();
+      }
+    });
+  </script>
+</body>
+</html>
